@@ -64,6 +64,7 @@ $(function() {
 	Q = new exercise();
 	Q.new();
 	$("#aufgabe").text(Q.getText());
+	$("#guess").focus();
 });
 
 
@@ -71,6 +72,12 @@ $('#check').on('click', function () {
 	var txt = Q.guess($("#guess").val());
 	$("#auswertung").text(txt);
 	$("#guess").val("");
+	$("#guess").focus();
 });
 
+$("#guess").keyup( function(c) {
+	if(c.which == 13) {
+		$("#check").click();
+	}
+});
 
